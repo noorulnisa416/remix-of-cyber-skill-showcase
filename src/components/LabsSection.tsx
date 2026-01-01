@@ -43,7 +43,7 @@ const LabsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="labs" className="py-24 relative" ref={ref}>
+    <section id="labs" className="py-24 relative rounded-3xl mx-4" ref={ref}>
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div

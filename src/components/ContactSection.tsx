@@ -89,7 +89,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 relative" ref={sectionRef}>
+    <section id="contact" className="py-24 relative rounded-3xl mx-4" ref={sectionRef}>
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Shield, Terminal } from "lucide-react";
-import { Button } from "./ui/button";
+import { Menu, X, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const navItems = [
   { name: "HOME", href: "#home" },
@@ -9,6 +9,7 @@ const navItems = [
   { name: "SKILLS", href: "#skills" },
   { name: "PROJECTS", href: "#projects" },
   { name: "CERTIFICATIONS", href: "#certifications" },
+  { name: "BLOG/NOTES", href: "/blog", isPage: true },
   { name: "CONTACT", href: "#contact" },
 ];
 
@@ -41,38 +42,50 @@ const Navbar = () => {
           <a href="#home" className="flex items-center gap-2 group">
             <Shield className="w-8 h-8 text-primary group-hover:text-glow-cyan transition-all" />
             <span className="font-display font-bold text-lg tracking-wider text-foreground group-hover:text-primary transition-colors">
-              NOOR<span className="text-primary">.SEC</span>
+              NOOR_UL_NISA<span className="text-primary">.</span>
             </span>
           </a>
 
           {/* Desktop Navigation - Center */}
           <div className="hidden md:flex items-center gap-6">
             {navItems.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide"
-              >
-                {item.name}
-              </motion.a>
+              item.isPage ? (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Link
+                    to={item.href}
+                    className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide"
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
+              ) : (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide"
+                >
+                  {item.name}
+                </motion.a>
+              )
             ))}
           </div>
 
           {/* Hire Me Button - Right */}
           <div className="hidden md:block">
-            <Button
-              asChild
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-mono text-sm"
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-mono text-sm transition-all duration-300"
             >
-              <a href="#contact">
-                <Terminal className="w-4 h-4 mr-2" />
-                HIRE ME
-              </a>
-            </Button>
+              <span className="text-primary">&gt;_</span> HIRE ME
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -96,29 +109,38 @@ const Navbar = () => {
           >
             <div className="container mx-auto px-4 py-4">
               {navItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  onClick={() => setIsOpen(false)}
-                  className="block py-3 font-mono text-muted-foreground hover:text-primary transition-colors border-b border-border/30 last:border-0"
-                >
-                  <span className="text-primary">&gt; </span>
-                  {item.name}
-                </motion.a>
+                item.isPage ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block py-3 font-mono text-muted-foreground hover:text-primary transition-colors border-b border-border/30 last:border-0"
+                  >
+                    <span className="text-primary">&gt; </span>
+                    {item.name}
+                  </Link>
+                ) : (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    onClick={() => setIsOpen(false)}
+                    className="block py-3 font-mono text-muted-foreground hover:text-primary transition-colors border-b border-border/30 last:border-0"
+                  >
+                    <span className="text-primary">&gt; </span>
+                    {item.name}
+                  </motion.a>
+                )
               ))}
-              <Button
-                asChild
-                variant="outline"
-                className="w-full mt-4 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-mono"
+              <a
+                href="#contact"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center gap-2 w-full mt-4 px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-mono text-sm transition-all duration-300"
               >
-                <a href="#contact" onClick={() => setIsOpen(false)}>
-                  <Terminal className="w-4 h-4 mr-2" />
-                  HIRE ME
-                </a>
-              </Button>
+                <span>&gt;_</span> HIRE ME
+              </a>
             </div>
           </motion.div>
         )}

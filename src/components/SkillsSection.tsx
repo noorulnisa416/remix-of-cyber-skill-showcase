@@ -5,13 +5,11 @@ import {
   Shield, 
   Network, 
   Bug, 
-  Server, 
-  Lock, 
-  Eye,
   Terminal,
-  Globe,
   Database,
-  Code
+  Code,
+  Lock,
+  Droplets
 } from "lucide-react";
 
 const skills = [
@@ -61,11 +59,11 @@ const tools = [
   { name: "Kali Linux", icon: Terminal },
   { name: "Burp Suite", icon: Bug },
   { name: "Nmap", icon: Network },
-  { name: "Metasploit", icon: Server },
-  { name: "Wireshark", icon: Eye },
+  { name: "Metasploit", icon: Shield },
+  { name: "Wireshark", icon: Database },
   { name: "Hashcat", icon: Lock },
   { name: "SQLMap", icon: Database },
-  { name: "Hydra", icon: Globe },
+  { name: "Hydra", icon: Droplets },
 ];
 
 const SkillsSection = () => {
@@ -73,7 +71,7 @@ const SkillsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-24 relative" ref={ref}>
+    <section id="skills" className="py-24 relative rounded-3xl mx-4" ref={ref}>
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -98,7 +96,7 @@ const SkillsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: catIndex * 0.1 }}
-              className="cyber-card p-6"
+              className="cyber-card p-6 rounded-xl"
             >
               <div className="flex items-center gap-3 mb-6">
                 <category.icon className="w-6 h-6 text-primary" />
@@ -140,20 +138,20 @@ const SkillsSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <h3 className="font-display font-bold text-2xl text-foreground mb-8">
+          <h3 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-10">
             Tools <span className="text-primary">&</span> Technologies
           </h3>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-6">
             {tools.map((tool, index) => (
               <motion.div
                 key={tool.name}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: 0.5 + index * 0.05 }}
-                className="flex flex-col items-center gap-2 p-4 min-w-[100px] cyber-card hover:neon-border-hover transition-all"
+                className="flex flex-col items-center gap-3 p-6 min-w-[120px] border border-primary/30 rounded-lg bg-card/30 hover:border-primary hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)] transition-all duration-300"
               >
-                <tool.icon className="w-8 h-8 text-primary" />
-                <span className="font-mono text-xs text-muted-foreground">
+                <tool.icon className="w-10 h-10 text-primary" />
+                <span className="font-mono text-sm text-muted-foreground">
                   {tool.name}
                 </span>
               </motion.div>
