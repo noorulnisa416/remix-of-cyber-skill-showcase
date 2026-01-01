@@ -9,61 +9,63 @@ import {
   Lock, 
   Eye,
   Terminal,
-  Globe
+  Globe,
+  Database,
+  Code
 } from "lucide-react";
 
 const skills = [
   {
-    category: "Offensive Security",
+    category: "Penetration Testing",
     icon: Bug,
     items: [
-      { name: "Penetration Testing", level: 75 },
-      { name: "Vulnerability Assessment", level: 70 },
-      { name: "Web Application Testing", level: 65 },
-      { name: "Network Exploitation", level: 60 },
+      { name: "Web App Testing", level: 75 },
+      { name: "Network Pentesting", level: 70 },
+      { name: "Vulnerability Assessment", level: 80 },
+      { name: "Exploitation", level: 65 },
     ],
   },
   {
-    category: "Network Security",
-    icon: Network,
-    items: [
-      { name: "Firewall Configuration", level: 70 },
-      { name: "Network Monitoring", level: 75 },
-      { name: "Cisco Networking", level: 65 },
-      { name: "Wireshark Analysis", level: 70 },
-    ],
-  },
-  {
-    category: "Defensive Security",
+    category: "Security Tools",
     icon: Shield,
     items: [
-      { name: "SOC Operations", level: 65 },
-      { name: "Threat Detection", level: 70 },
-      { name: "Incident Response", level: 60 },
-      { name: "SIEM Tools", level: 55 },
+      { name: "Burp Suite", level: 80 },
+      { name: "Nmap", level: 85 },
+      { name: "Metasploit", level: 70 },
+      { name: "Wireshark", level: 75 },
     ],
   },
   {
-    category: "Tools & Technologies",
-    icon: Terminal,
+    category: "Networking",
+    icon: Network,
     items: [
-      { name: "Kali Linux", level: 75 },
-      { name: "Burp Suite", level: 65 },
-      { name: "Nmap", level: 80 },
-      { name: "Metasploit", level: 60 },
+      { name: "TCP/IP", level: 80 },
+      { name: "Firewalls", level: 70 },
+      { name: "VPN/Proxies", level: 75 },
+      { name: "DNS/DHCP", level: 72 },
+    ],
+  },
+  {
+    category: "Programming",
+    icon: Code,
+    items: [
+      { name: "Python", level: 75 },
+      { name: "Bash Scripting", level: 70 },
+      { name: "SQL", level: 65 },
+      { name: "PowerShell", level: 60 },
     ],
   },
 ];
 
 const tools = [
   { name: "Kali Linux", icon: Terminal },
-  { name: "Wireshark", icon: Eye },
   { name: "Burp Suite", icon: Bug },
   { name: "Nmap", icon: Network },
   { name: "Metasploit", icon: Server },
-  { name: "OWASP ZAP", icon: Globe },
-  { name: "Nessus", icon: Shield },
+  { name: "Wireshark", icon: Eye },
   { name: "Hashcat", icon: Lock },
+  { name: "SQLMap", icon: Database },
+  { name: "Hydra", icon: Globe },
 ];
 
 const SkillsSection = () => {
@@ -139,7 +141,7 @@ const SkillsSection = () => {
           className="text-center"
         >
           <h3 className="font-display font-bold text-2xl text-foreground mb-8">
-            TOOLS <span className="text-primary">&</span> PLATFORMS
+            Tools <span className="text-primary">&</span> Technologies
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
             {tools.map((tool, index) => (
@@ -148,10 +150,12 @@ const SkillsSection = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: 0.5 + index * 0.05 }}
-                className="flex items-center gap-2 px-4 py-2 bg-card/50 neon-border neon-border-hover font-mono text-sm text-muted-foreground hover:text-primary transition-colors cursor-default"
+                className="flex flex-col items-center gap-2 p-4 min-w-[100px] cyber-card hover:neon-border-hover transition-all"
               >
-                <tool.icon className="w-4 h-4" />
-                {tool.name}
+                <tool.icon className="w-8 h-8 text-primary" />
+                <span className="font-mono text-xs text-muted-foreground">
+                  {tool.name}
+                </span>
               </motion.div>
             ))}
           </div>
