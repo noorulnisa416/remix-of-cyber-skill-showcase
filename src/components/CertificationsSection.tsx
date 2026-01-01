@@ -48,7 +48,7 @@ const CertificationsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="certifications" className="py-24 relative" ref={ref}>
+    <section id="certifications" className="py-24 relative rounded-3xl mx-4" ref={ref}>
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
 

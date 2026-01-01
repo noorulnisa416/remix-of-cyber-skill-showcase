@@ -14,7 +14,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-24 relative" ref={ref}>
+    <section id="about" className="py-24 relative rounded-3xl mx-4" ref={ref}>
       {/* Background accent */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
       

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Folder, FolderOpen } from "lucide-react";
+import { ExternalLink, Github, Folder, FolderOpen, ArrowRight } from "lucide-react";
 
 const featuredProjects = [
   {
@@ -42,6 +42,12 @@ const otherProjects = [
     tech: ["Active Directory", "Windows", "Lab"],
     github: "https://github.com/noorulnisa416",
   },
+  {
+    title: "Phishing Campaign Analyzer",
+    description: "Tool to analyze and detect phishing emails using header analysis and content inspection techniques.",
+    tech: ["Python", "Email Security", "Analysis"],
+    github: "https://github.com/noorulnisa416",
+  },
 ];
 
 const ProjectsSection = () => {
@@ -49,7 +55,7 @@ const ProjectsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-24 relative" ref={ref}>
+    <section id="projects" className="py-24 relative rounded-3xl mx-4" ref={ref}>
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
 
@@ -87,7 +93,7 @@ const ProjectsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="cyber-card p-6 relative"
+              className="cyber-card p-6 relative rounded-xl"
             >
               {/* Project Number */}
               <div className="absolute top-4 right-4">
@@ -154,14 +160,14 @@ const ProjectsSection = () => {
         </motion.div>
 
         {/* Other Projects Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {otherProjects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-              className="cyber-card p-6"
+              className="cyber-card p-6 rounded-xl"
             >
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
@@ -203,6 +209,23 @@ const ProjectsSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* View All on GitHub Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="flex justify-center"
+        >
+          <a
+            href="https://github.com/noorulnisa416"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-3 border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-mono text-sm uppercase tracking-wider transition-all duration-300"
+          >
+            VIEW ALL ON GITHUB <ArrowRight className="w-4 h-4" />
+          </a>
+        </motion.div>
 
         {/* Section Divider */}
         <div className="section-divider mt-24" />
