@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Shield } from "lucide-react";
+import { Menu, X, Shield, Terminal } from "lucide-react";
+import { Button } from "./ui/button";
 
 const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Labs", href: "#labs" },
-  { name: "Certifications", href: "#certifications" },
-  { name: "Contact", href: "#contact" },
+  { name: "HOME", href: "#home" },
+  { name: "ABOUT", href: "#about" },
+  { name: "SKILLS", href: "#skills" },
+  { name: "PROJECTS", href: "#projects" },
+  { name: "CERTIFICATIONS", href: "#certifications" },
+  { name: "CONTACT", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -41,13 +41,12 @@ const Navbar = () => {
           <a href="#home" className="flex items-center gap-2 group">
             <Shield className="w-8 h-8 text-primary group-hover:text-glow-cyan transition-all" />
             <span className="font-display font-bold text-lg tracking-wider text-foreground group-hover:text-primary transition-colors">
-              NOOR<span className="text-primary">_</span>UL
-              <span className="text-primary">_</span>NISA
+              NOOR<span className="text-primary">.SEC</span>
             </span>
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
+          {/* Desktop Navigation - Center */}
+          <div className="hidden md:flex items-center gap-6">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}
@@ -55,15 +54,25 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="relative px-4 py-2 font-mono text-sm text-muted-foreground hover:text-primary transition-colors group"
+                className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide"
               >
-                <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                  &gt;{" "}
-                </span>
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
               </motion.a>
             ))}
+          </div>
+
+          {/* Hire Me Button - Right */}
+          <div className="hidden md:block">
+            <Button
+              asChild
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-mono text-sm"
+            >
+              <a href="#contact">
+                <Terminal className="w-4 h-4 mr-2" />
+                HIRE ME
+              </a>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -100,6 +109,16 @@ const Navbar = () => {
                   {item.name}
                 </motion.a>
               ))}
+              <Button
+                asChild
+                variant="outline"
+                className="w-full mt-4 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-mono"
+              >
+                <a href="#contact" onClick={() => setIsOpen(false)}>
+                  <Terminal className="w-4 h-4 mr-2" />
+                  HIRE ME
+                </a>
+              </Button>
             </div>
           </motion.div>
         )}

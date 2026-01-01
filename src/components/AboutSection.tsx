@@ -1,33 +1,16 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Target, GraduationCap, Briefcase, Code2 } from "lucide-react";
+import { User, Target, Award, BookOpen } from "lucide-react";
 
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const highlights = [
-    {
-      icon: Target,
-      title: "Focus",
-      description: "Penetration Testing & Network Security",
-    },
-    {
-      icon: GraduationCap,
-      title: "Education",
-      description: "Continuous Learning in Cybersecurity",
-    },
-    {
-      icon: Briefcase,
-      title: "Experience",
-      description: "Intermediate Level Professional",
-    },
-    {
-      icon: Code2,
-      title: "Specialization",
-      description: "SOC Analysis & Threat Detection",
-    },
+  const stats = [
+    { icon: Target, value: "50+", label: "LABS COMPLETED" },
+    { icon: Award, value: "3+", label: "CERTIFICATIONS" },
+    { icon: BookOpen, value: "2+", label: "YEARS LEARNING" },
   ];
 
   return (
@@ -36,23 +19,33 @@ const AboutSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
+        {/* Section Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
+          className="flex justify-center mb-8"
+        >
+          <div className="flex items-center gap-2 px-4 py-2 border border-primary/50 rounded-full bg-card/50">
+            <User className="w-4 h-4 text-primary" />
+            <span className="font-mono text-sm text-muted-foreground">About Me</span>
+          </div>
+        </motion.div>
+
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-16 text-center"
         >
-          <p className="text-primary font-mono text-sm mb-2">
-            <span className="text-accent">&gt;</span> about.init()
-          </p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground">
-            ABOUT <span className="text-primary text-glow-cyan">ME</span>
+            Who <span className="text-primary text-glow-cyan">Am I?</span>
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left - Terminal Style Bio */}
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Left - Terminal Style Profile */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -64,60 +57,84 @@ const AboutSection = () => {
               <div className="w-3 h-3 rounded-full bg-yellow-500" />
               <div className="w-3 h-3 rounded-full bg-primary" />
               <span className="ml-2 font-mono text-sm text-muted-foreground">
-                about_me.sh
+                about.sh
               </span>
             </div>
 
-            <div className="font-mono text-sm space-y-4">
+            <div className="font-mono text-sm space-y-3">
               <p className="text-muted-foreground">
-                <span className="text-primary">$</span> cat /home/noorulnisa/bio.txt
+                <span className="text-primary">$</span> cat profile.txt
               </p>
-              <p className="text-foreground leading-relaxed pl-4">
-                A passionate Cybersecurity professional with intermediate-level expertise 
-                in penetration testing, network security, and threat detection. 
-                Currently on a mission to learn, grow, and contribute to building 
-                a more secure digital landscape.
-              </p>
-              <p className="text-muted-foreground mt-6">
-                <span className="text-primary">$</span> cat /home/noorulnisa/mission.txt
-              </p>
-              <p className="text-foreground leading-relaxed pl-4">
-                My goal is to become a skilled Penetration Tester, identifying 
-                vulnerabilities before malicious actors can exploit them. I believe 
-                in ethical hacking as a means to protect individuals and organizations 
-                from cyber threats.
-              </p>
-              <p className="text-muted-foreground mt-6">
-                <span className="text-primary">$</span> echo $INTERESTS
-              </p>
-              <p className="text-primary pl-4">
-                ["Web App Security", "Network Penetration", "Vulnerability Assessment", 
-                "SOC Operations", "Threat Hunting"]
-              </p>
+              <div className="pl-4 space-y-2">
+                <p className="text-foreground">
+                  <span className="text-primary">Name:</span> Noor Ul Nisa
+                </p>
+                <p className="text-foreground">
+                  <span className="text-primary">Role:</span> Aspiring Penetration Tester
+                </p>
+                <p className="text-foreground">
+                  <span className="text-primary">Focus:</span> Ethical Hacking, Vulnerability Assessment
+                </p>
+                <p className="text-foreground">
+                  <span className="text-primary">Status:</span>{" "}
+                  <span className="text-primary">●</span> Active
+                </p>
+              </div>
             </div>
           </motion.div>
 
-          {/* Right - Highlights Grid */}
-          <div className="grid grid-cols-2 gap-4">
-            {highlights.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                className="cyber-card p-6 group hover:neon-border-hover"
-              >
-                <item.icon className="w-10 h-10 text-primary mb-4 group-hover:text-glow-cyan transition-all" />
-                <h3 className="font-display font-bold text-foreground mb-2">
-                  {item.title}
-                </h3>
-                <p className="font-mono text-xs text-muted-foreground">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+          {/* Right - Bio Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="space-y-6"
+          >
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground">
+              Securing the Digital Frontier
+            </h3>
+            
+            <p className="text-muted-foreground leading-relaxed">
+              I am an intermediate-level cybersecurity enthusiast with a deep passion for penetration testing
+              and ethical hacking. My journey in security began with a curiosity about how systems can be
+              exploited and, more importantly, how they can be protected.
+            </p>
+            
+            <p className="text-muted-foreground leading-relaxed">
+              Currently focusing on developing advanced skills in vulnerability assessment, network penetration
+              testing, and web application security. I actively practice on platforms like TryHackMe and
+              HackTheBox to sharpen my skills.
+            </p>
+            
+            <p className="text-muted-foreground leading-relaxed">
+              My goal is to become a professional penetration tester, helping organizations identify and fix
+              security vulnerabilities before malicious actors can exploit them.
+            </p>
+          </motion.div>
         </div>
+
+        {/* Stats Cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="grid grid-cols-3 gap-4 mt-12"
+        >
+          {stats.map((stat, index) => (
+            <div
+              key={stat.label}
+              className="cyber-card p-6 text-center"
+            >
+              <stat.icon className="w-6 h-6 text-primary mx-auto mb-3" />
+              <p className="text-2xl md:text-3xl font-display font-bold text-primary mb-1">
+                {stat.value}
+              </p>
+              <p className="font-mono text-xs text-muted-foreground">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </motion.div>
 
         {/* Section Divider */}
         <div className="section-divider mt-24" />
