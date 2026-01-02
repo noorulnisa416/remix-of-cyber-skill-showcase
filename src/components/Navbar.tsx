@@ -82,9 +82,9 @@ const Navbar = () => {
           {/* Hire Me Button - Right */}
           <div className="hidden md:block">
             <Button variant="cyber" size="sm" asChild>
-              <a href="#contact">
-                <Terminal className="w-4 h-4" />
-                Hire Me
+              <a href="#contact" className="flex items-center gap-2">
+                <span className="text-primary">&gt;_</span>
+                <span>HIRE ME</span>
               </a>
             </Button>
           </div>
@@ -136,9 +136,9 @@ const Navbar = () => {
                 )
               ))}
               <Button variant="cyber" className="w-full mt-4" asChild>
-                <a href="#contact" onClick={() => setIsOpen(false)}>
-                  <Terminal className="w-4 h-4" />
-                  Hire Me
+                <a href="#contact" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2">
+                  <span className="text-primary">&gt;_</span>
+                  <span>HIRE ME</span>
                 </a>
               </Button>
             </div>
