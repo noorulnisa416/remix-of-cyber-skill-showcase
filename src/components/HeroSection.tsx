@@ -107,9 +107,9 @@ const HeroSection = () => {
             </Button>
             <Button
               asChild
-              variant="outline"
+              variant="cyber"
               size="lg"
-              className="border-primary/50 hover:bg-primary/10 hover:border-primary px-8 py-6 text-lg font-display"
+              className="px-8 py-6 text-lg"
             >
               <a href="#contact">
                 <span>CONTACT ME</span>

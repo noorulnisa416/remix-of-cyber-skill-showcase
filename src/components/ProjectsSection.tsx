@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink, Github, Folder, FolderOpen, ArrowRight } from "lucide-react";
+import { Button } from "./ui/button";
 
 const featuredProjects = [
   {
@@ -217,15 +218,17 @@ const ProjectsSection = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="flex justify-center"
         >
-          <a
-            href="https://github.com/noorulnisa416"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cyber-button inline-flex items-center gap-2 px-8 py-3 font-mono text-sm uppercase tracking-wider rounded-md"
-          >
-            View All on GitHub
-            <ArrowRight className="w-4 h-4" />
-          </a>
+          <Button variant="cyber" size="lg" asChild>
+            <a
+              href="https://github.com/noorulnisa416"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2"
+            >
+              VIEW ALL ON GITHUB
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </Button>
         </motion.div>
 
         {/* Section Divider */}

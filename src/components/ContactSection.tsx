@@ -245,18 +245,19 @@ const ContactSection = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
+                variant="cyberFilled"
                 size="lg"
-                className="w-full cyber-button py-6 font-display"
+                className="w-full"
               >
                 {isSubmitting ? (
-                  <span className="relative z-10 flex items-center justify-center">
-                    <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
+                  <span className="flex items-center justify-center gap-2">
+                    <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
                     SENDING...
                   </span>
                 ) : (
-                  <span className="relative z-10 flex items-center justify-center">
-                    <Send className="w-5 h-5 mr-2" />
+                  <span className="flex items-center justify-center gap-2">
                     SEND MESSAGE
+                    <Send className="w-4 h-4" />
                   </span>
                 )}
               </Button>
