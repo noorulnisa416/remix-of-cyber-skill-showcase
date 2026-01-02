@@ -221,9 +221,10 @@ const ProjectsSection = () => {
             href="https://github.com/noorulnisa416"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-mono text-sm uppercase tracking-wider transition-all duration-300"
+            className="cyber-button inline-flex items-center gap-2 px-8 py-3 font-mono text-sm uppercase tracking-wider rounded-md"
           >
-            VIEW ALL ON GITHUB <ArrowRight className="w-4 h-4" />
+            View All on GitHub
+            <ArrowRight className="w-4 h-4" />
           </a>
         </motion.div>
 

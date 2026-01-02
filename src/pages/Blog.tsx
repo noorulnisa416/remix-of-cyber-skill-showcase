@@ -69,7 +69,7 @@ const Blog = () => {
                 <ArrowLeft className="w-4 h-4" />
                 Back to Home
               </Link>
-              <span className="font-display font-bold text-lg tracking-wider text-foreground">
+              <span className="font-display font-bold text-base md:text-lg tracking-wider text-foreground">
                 NOOR_UL_NISA<span className="text-primary">.</span>
               </span>
             </div>
@@ -77,14 +77,14 @@ const Blog = () => {
         </header>
 
         {/* Main Content */}
-        <main className="pt-24 pb-16">
+        <main className="pt-20 md:pt-24 pb-16">
           <div className="container mx-auto px-4">
             {/* Page Header */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-16"
+              className="text-center mb-12 md:mb-16"
             >
               <div className="flex justify-center mb-4">
                 <div className="flex items-center gap-2 px-4 py-2 border border-primary/50 rounded-full bg-card/50">
@@ -92,23 +92,23 @@ const Blog = () => {
                   <span className="font-mono text-sm text-muted-foreground">My Writings</span>
                 </div>
               </div>
-              <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
-                Blog & <span className="text-primary text-glow-cyan">Notes</span>
+              <h1 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">
+                Blog <span className="text-primary">&</span> <span className="text-primary text-glow-cyan">Notes</span>
               </h1>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base px-4">
                 Documenting my cybersecurity journey, sharing knowledge, and exploring security concepts through writeups and tutorials.
               </p>
             </motion.div>
 
             {/* Blog Posts Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {blogPosts.map((post, index) => (
                 <motion.article
                   key={post.id}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="cyber-card p-6 rounded-xl group cursor-pointer"
+                  className="cyber-card p-4 md:p-6 rounded-xl group cursor-pointer"
                 >
                   {/* Category Badge */}
                   <div className="flex items-center justify-between mb-4">
