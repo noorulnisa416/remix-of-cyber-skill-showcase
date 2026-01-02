@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Shield } from "lucide-react";
+import { Menu, X, Shield, Terminal } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
 
 const navItems = [
   { name: "HOME", href: "#home" },
@@ -80,12 +81,12 @@ const Navbar = () => {
 
           {/* Hire Me Button - Right */}
           <div className="hidden md:block">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-mono text-sm transition-all duration-300"
-            >
-              <span className="text-primary">&gt;_</span> HIRE ME
-            </a>
+            <Button variant="cyber" size="sm" asChild>
+              <a href="#contact">
+                <Terminal className="w-4 h-4" />
+                Hire Me
+              </a>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -134,13 +135,12 @@ const Navbar = () => {
                   </motion.a>
                 )
               ))}
-              <a
-                href="#contact"
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 w-full mt-4 px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-mono text-sm transition-all duration-300"
-              >
-                <span>&gt;_</span> HIRE ME
-              </a>
+              <Button variant="cyber" className="w-full mt-4" asChild>
+                <a href="#contact" onClick={() => setIsOpen(false)}>
+                  <Terminal className="w-4 h-4" />
+                  Hire Me
+                </a>
+              </Button>
             </div>
           </motion.div>
         )}

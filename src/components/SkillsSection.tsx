@@ -136,22 +136,22 @@ const SkillsSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center"
+          className="cyber-card p-6 md:p-8 rounded-xl"
         >
-          <h3 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-10">
+          <h3 className="font-display font-bold text-xl md:text-2xl text-foreground mb-8 text-center">
             Tools <span className="text-primary">&</span> Technologies
           </h3>
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4">
             {tools.map((tool, index) => (
               <motion.div
                 key={tool.name}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: 0.5 + index * 0.05 }}
-                className="flex flex-col items-center gap-3 p-6 min-w-[120px] border border-primary/30 rounded-lg bg-card/30 hover:border-primary hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)] transition-all duration-300"
+                className="flex flex-col items-center gap-2 p-4 border border-primary/30 rounded-lg bg-card/30 hover:border-primary hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)] transition-all duration-300"
               >
-                <tool.icon className="w-10 h-10 text-primary" />
-                <span className="font-mono text-sm text-muted-foreground">
+                <tool.icon className="w-8 h-8 text-primary" />
+                <span className="font-mono text-xs text-muted-foreground text-center">
                   {tool.name}
                 </span>
               </motion.div>
