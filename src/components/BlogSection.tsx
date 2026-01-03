@@ -59,18 +59,18 @@ const BlogSection = () => {
         <div className="cyber-line mb-12" />
 
         {/* Blog Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {blogPosts.map((post, index) => (
             <motion.article
               key={post.id}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="cyber-card p-6 rounded-xl group cursor-pointer hover:border-primary/50 transition-all duration-300"
+              className="cyber-card p-8 rounded-xl group cursor-pointer hover:border-primary/50 transition-all duration-300"
             >
               {/* Category Badge */}
               <div className="flex items-center justify-between mb-4">
-                <span className="px-3 py-1 border border-primary/50 text-primary font-mono text-xs rounded-full">
+                <span className="px-4 py-2 border border-primary/50 text-primary font-mono text-xs rounded-full">
                   {post.category}
                 </span>
                 <span className="text-muted-foreground text-xs font-mono">

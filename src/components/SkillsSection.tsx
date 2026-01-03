@@ -143,15 +143,15 @@ const SkillsSection = () => {
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-6">
             {tools.map((tool, index) => (
-              <motion.div
+                <motion.div
                 key={tool.name}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: 0.5 + index * 0.05 }}
-                className="flex flex-col items-center gap-3 p-6 border border-primary/30 rounded-xl bg-card/30 hover:border-primary hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)] transition-all duration-300"
+                className="flex flex-col items-center gap-3 p-6 md:p-8 border border-primary/30 rounded-xl bg-card/30 hover:border-primary hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)] transition-all duration-300 min-w-[120px]"
               >
                 <tool.icon className="w-10 h-10 md:w-12 md:h-12 text-primary" />
-                <span className="font-mono text-sm text-muted-foreground text-center">
+                <span className="font-mono text-sm text-muted-foreground text-center whitespace-nowrap">
                   {tool.name}
                 </span>
               </motion.div>

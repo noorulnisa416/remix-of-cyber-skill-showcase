@@ -99,7 +99,7 @@ const HeroSection = () => {
             <Button
               asChild
               size="lg"
-              className="cyber-button px-8 py-6 text-lg font-display"
+              className="cyber-button-filled px-8 py-6 text-lg font-display rounded-lg"
             >
               <a href="#projects">
                 <span className="relative z-10">VIEW PROJECTS</span>
@@ -107,9 +107,9 @@ const HeroSection = () => {
             </Button>
             <Button
               asChild
-              variant="cyber"
+              variant="outline"
               size="lg"
-              className="px-8 py-6 text-lg"
+              className="px-8 py-6 text-lg rounded-lg border-primary text-primary hover:bg-primary hover:text-primary-foreground font-display uppercase tracking-wider transition-all duration-300"
             >
               <a href="#contact">
                 <span>CONTACT ME</span>
