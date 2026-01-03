@@ -81,7 +81,7 @@ const Navbar = () => {
 
           {/* Hire Me Button - Right */}
           <div className="hidden md:block">
-            <Button variant="cyber" size="sm" asChild>
+            <Button variant="cyber" size="sm" asChild className="rounded-xl">
               <a href="#contact" className="flex items-center gap-2">
                 <span className="text-primary">&gt;_</span>
                 <span>HIRE ME</span>
@@ -135,7 +135,7 @@ const Navbar = () => {
                   </motion.a>
                 )
               ))}
-              <Button variant="cyber" className="w-full mt-4" asChild>
+              <Button variant="cyber" className="w-full mt-4 rounded-xl" asChild>
                 <a href="#contact" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2">
                   <span className="text-primary">&gt;_</span>
                   <span>HIRE ME</span>

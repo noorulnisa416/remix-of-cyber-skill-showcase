@@ -74,10 +74,10 @@ const LabsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="cyber-card p-6 group cursor-pointer hover:neon-border-hover"
+              className="cyber-card p-6 rounded-xl group cursor-pointer hover:neon-border-hover"
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-primary/10 rounded neon-border group-hover:pulse-glow transition-all">
+                <div className="p-3 bg-primary/10 rounded-xl neon-border group-hover:pulse-glow transition-all">
                   <lab.icon className="w-8 h-8 text-primary" />
                 </div>
                 <div className="flex-1">
@@ -94,7 +94,7 @@ const LabsSection = () => {
                     {lab.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-2 py-1 bg-secondary text-muted-foreground font-mono text-xs rounded"
+                        className="px-3 py-1 bg-secondary text-muted-foreground font-mono text-xs rounded-lg"
                       >
                         {skill}
                       </span>
@@ -111,7 +111,7 @@ const LabsSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 cyber-card p-8"
+          className="mt-16 cyber-card p-8 rounded-xl"
         >
           <h3 className="font-display font-bold text-xl text-foreground mb-6 text-center">
             PRACTICE <span className="text-primary">STATS</span>

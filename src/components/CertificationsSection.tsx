@@ -76,13 +76,13 @@ const CertificationsSection = () => {
               CERTIFICATIONS
             </h3>
             {certifications.map((cert, index) => (
-              <motion.div
-                key={cert.name}
-                initial={{ opacity: 0, x: -30 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="cyber-card p-5 group hover:neon-border-hover"
-              >
+                <motion.div
+                  key={cert.name}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="cyber-card p-5 rounded-xl group hover:neon-border-hover"
+                >
                 <div className="flex items-start justify-between mb-2">
                   <div>
                     <h4 className="font-display font-bold text-foreground group-hover:text-primary transition-colors">
@@ -93,7 +93,7 @@ const CertificationsSection = () => {
                     </p>
                   </div>
                   <span
-                    className={`px-2 py-1 font-mono text-xs rounded ${
+                    className={`px-3 py-1 font-mono text-xs rounded-lg ${
                       cert.completed
                         ? "bg-primary/20 text-primary"
                         : cert.inProgress
@@ -121,7 +121,7 @@ const CertificationsSection = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="cyber-card p-6"
+              className="cyber-card p-6 rounded-xl"
             >
               <div className="relative">
                 {/* Timeline line */}
@@ -138,7 +138,7 @@ const CertificationsSection = () => {
                     >
                       {/* Step indicator */}
                       <div
-                        className={`absolute left-0 w-8 h-8 rounded-full flex items-center justify-center font-mono text-sm font-bold ${
+                        className={`absolute left-0 w-8 h-8 rounded-xl flex items-center justify-center font-mono text-sm font-bold ${
                           item.status === "completed"
                             ? "bg-primary text-primary-foreground"
                             : item.status === "current"
@@ -171,7 +171,7 @@ const CertificationsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-6 cyber-card p-6 neon-border"
+              className="mt-6 cyber-card p-6 rounded-xl neon-border"
             >
               <h4 className="font-display font-bold text-lg text-primary mb-3">
                 🎯 Career Goal: Penetration Tester

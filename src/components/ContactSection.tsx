@@ -121,7 +121,7 @@ const ContactSection = () => {
           <div className="cyber-line mt-8" />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {/* Left Column - Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -130,7 +130,7 @@ const ContactSection = () => {
             className="space-y-6"
           >
             {/* Contact Information Card */}
-            <div className="cyber-card p-6 rounded-xl">
+            <div className="cyber-card p-8 rounded-xl">
               <h3 className="font-display font-bold text-xl text-foreground mb-6">
                 Contact Information
               </h3>
@@ -145,10 +145,10 @@ const ContactSection = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                    className="flex items-center gap-4 p-3 rounded-lg hover:bg-secondary/30 transition-colors group"
+                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-secondary/30 transition-colors group"
                   >
-                    <div className="p-3 bg-primary/10 rounded-lg border border-primary/30">
-                      <link.icon className="w-5 h-5 text-primary" />
+                    <div className="p-4 bg-primary/10 rounded-xl border border-primary/30">
+                      <link.icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <p className="font-mono text-xs text-muted-foreground">
@@ -164,7 +164,7 @@ const ContactSection = () => {
             </div>
 
             {/* Terminal Style Availability Card */}
-            <div className="cyber-card p-6 rounded-xl font-mono text-sm">
+            <div className="cyber-card p-8 rounded-xl font-mono text-sm">
               <div className="flex items-center gap-2 mb-4 pb-2 border-b border-border">
                 <div className="w-3 h-3 rounded-full bg-destructive" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500" />
@@ -197,7 +197,7 @@ const ContactSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="cyber-card p-6 md:p-8 rounded-xl">
+            <div className="cyber-card p-8 md:p-10 rounded-xl">
               <h3 className="font-display font-bold text-xl text-foreground mb-6">
                 Send a Message
               </h3>
